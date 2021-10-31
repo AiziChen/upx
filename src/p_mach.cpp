@@ -1270,7 +1270,7 @@ void PackMachBase<T>::pack1(OutputFile *const fo, Filter &/*ft*/)  // generate e
                 Mach_section_command const *const secptr = (Mach_section_command const *)(1+ segptr);
                 if (!strcmp("__TEXT", segptr->segname)) {
                     strncpy((char *)secTEXT.segname,   "__TEXT", sizeof(secTEXT.segname));
-                    strncpy((char *)secTEXT.sectname, "upxTEXT", sizeof(secTEXT.sectname));
+                    strncpy((char *)secTEXT.sectname, "00", sizeof(secTEXT.sectname));
                     secTEXT.addr   = secptr->addr;
                     secTEXT.size   = secptr->size;  // update later
                     secTEXT.offset = secptr->offset;
@@ -1309,7 +1309,7 @@ void PackMachBase<T>::pack1(OutputFile *const fo, Filter &/*ft*/)  // generate e
                     if (!(1 <= segptr->nsects)) {
                         throwCantPack("TEXT.nsects == 0");
                     }
-                    strncpy((char *)secTEXT.sectname, "upxTEXT", sizeof(secTEXT.sectname));
+                    strncpy((char *)secTEXT.sectname, "00", sizeof(secTEXT.sectname));
                     secTEXT.addr   = secptr->addr;
                     secTEXT.size   = secptr->size;  // update later
                     secTEXT.offset = secptr->offset;
