@@ -55,25 +55,7 @@ void show_head(void)
 
     fg = con_fg(f,FG_GREEN);
     con_fprintf(f,
-                "                       Ultimate Packer for eXecutables\n"
-                "                          Copyright (C) 1996 - " UPX_VERSION_YEAR "\n"
-#if defined(UPX_VERSION_GITREV)
-                "UPX git-%6.6s%c"
-#else
-                "UPX %-11s"
-#endif
-                " Markus Oberhumer, Laszlo Molnar & John Reiser  %14s\n\n",
-#if defined(UPX_VERSION_GITREV)
-                gitrev,
-                (sizeof(gitrev)-1 > 6 && gitrev[sizeof(gitrev)-2] == '+') ? '+' : ' ',
-#else
-                UPX_VERSION_STRING,
-#endif
-                UPX_VERSION_DATE);
-    fg = con_fg(f,fg);
-#undef V
-
-    UNUSED(fg);
+                "                       Fucking disassembler - Binary Protector\n");
 }
 
 
@@ -310,9 +292,10 @@ void show_help(int verbose)
         con_fprintf(f,"\nType '%s --help' for more detailed help.\n", progname);
     }
 
-    con_fprintf(f,"\nUPX comes with ABSOLUTELY NO WARRANTY; for details visit https://upx.github.io\n"
+//    con_fprintf(f,"\nUPX comes with ABSOLUTELY NO WARRANTY; for details visit https://upx.github.io\n"
 //                "\nUPX comes with ABSOLUTELY NO WARRANTY; for details type 'upx -L'.\n"
-                "");
+//                "");
+    con_fprintf(f, "\n");
 
 #if (DEBUG) || (TESTING)
     fg = con_fg(f,FG_RED);
@@ -342,17 +325,17 @@ void show_license(void)
     show_head();
 
     con_fprintf(f,
-        "   This program may be used freely, and you are welcome to\n"
-        "   redistribute it under certain conditions.\n"
-        "\n"
-        "   This program is distributed in the hope that it will be useful,\n"
-        "   but WITHOUT ANY WARRANTY; without even the implied warranty of\n"
-        "   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n"
-        "   UPX License Agreement for more details.\n"
-        "\n"
-        "   You should have received a copy of the UPX License Agreement\n"
-        "   along with this program; see the file LICENSE.\n"
-        "   If not, visit one of the following pages:\n"
+//        "   This program may be used freely, and you are welcome to\n"
+//        "   redistribute it under certain conditions.\n"
+//        "\n"
+//        "   This program is distributed in the hope that it will be useful,\n"
+//        "   but WITHOUT ANY WARRANTY; without even the implied warranty of\n"
+//        "   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n"
+//        "   UPX License Agreement for more details.\n"
+//        "\n"
+//        "   You should have received a copy of the UPX License Agreement\n"
+//        "   along with this program; see the file LICENSE.\n"
+//        "   If not, visit one of the following pages:\n"
         "\n"
     );
     int fg = con_fg(f,FG_CYAN);
@@ -363,8 +346,8 @@ void show_license(void)
     (void)con_fg(f,FG_ORANGE);
     con_fprintf(f,
         "\n"
-        "   Markus F.X.J. Oberhumer              Laszlo Molnar\n"
-        "   <markus@oberhumer.com>               <ezerotven+github@gmail.com>\n"
+//        "   Markus F.X.J. Oberhumer              Laszlo Molnar\n"
+//        "   <markus@oberhumer.com>               <ezerotven+github@gmail.com>\n"
     );
     fg = con_fg(f,fg);
 
@@ -383,7 +366,7 @@ void show_version(int x)
     UNUSED(x);
     UNUSED(v);
 
-    fprintf(fp, "upx %s\n", UPX_VERSION_STRING
+    fprintf(fp, "protector %s\n", UPX_VERSION_STRING
 #if defined(UPX_VERSION_GITREV)
             "-git-" UPX_VERSION_GITREV
 #endif
@@ -408,17 +391,17 @@ void show_version(int x)
     if (v != nullptr && v[0])
         fprintf(fp, "LZMA SDK version %s\n", v);
 #endif
-    fprintf(fp, "Copyright (C) 1996-2021 Markus Franz Xaver Johannes Oberhumer\n");
-    fprintf(fp, "Copyright (C) 1996-2021 Laszlo Molnar\n");
-    fprintf(fp, "Copyright (C) 2000-2021 John F. Reiser\n");
-    fprintf(fp, "Copyright (C) 2002-2021 Jens Medoch\n");
+//    fprintf(fp, "Copyright (C) 1996-2021 Markus Franz Xaver Johannes Oberhumer\n");
+//    fprintf(fp, "Copyright (C) 1996-2021 Laszlo Molnar\n");
+//    fprintf(fp, "Copyright (C) 2000-2021 John F. Reiser\n");
+//    fprintf(fp, "Copyright (C) 2002-2021 Jens Medoch\n");
 #if (WITH_ZLIB)
-    fprintf(fp, "Copyright (C) 1995" "-2017 Jean-loup Gailly and Mark Adler\n");
+//    fprintf(fp, "Copyright (C) 1995" "-2017 Jean-loup Gailly and Mark Adler\n");
 #endif
 #if (WITH_LZMA)
-    fprintf(fp, "Copyright (C) 1999" "-2006 Igor Pavlov\n");
+//    fprintf(fp, "Copyright (C) 1999" "-2006 Igor Pavlov\n");
 #endif
-    fprintf(fp, "UPX comes with ABSOLUTELY NO WARRANTY; for details type '%s -L'.\n", progname);
+//    fprintf(fp, "UPX comes with ABSOLUTELY NO WARRANTY; for details type '%s -L'.\n", progname);
 }
 
 /* vim:set ts=4 sw=4 et: */
