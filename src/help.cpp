@@ -339,10 +339,11 @@ void show_license(void)
         "\n"
     );
     int fg = con_fg(f,FG_CYAN);
-    con_fprintf(f,
-        "        https://upx.github.io\n"
-        "        http://www.oberhumer.com/opensource/upx/\n"
-    );
+    con_fprintf(f, "        binary-porn.not.exists");
+//    con_fprintf(f,
+//        "        https://upx.github.io\n"
+//        "        http://www.oberhumer.com/opensource/upx/\n"
+//    );
     (void)con_fg(f,FG_ORANGE);
     con_fprintf(f,
         "\n"
